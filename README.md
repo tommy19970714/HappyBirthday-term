@@ -7,11 +7,14 @@ A terminal based Happy Birthday card
 ###pip install
 ``` pip3 install scipy ```
 
-###mplayer install
+###mplayer & figlet install
 ####mac:
-``` brew install mplayer```
+```
+brew install mplayer figlet
+```
+
 ####linux:
-``` sudo apt-get install mplayer```
+``` sudo apt-get install mplayer figlet```
 
 # Run
 First, you should turn up the volume before run this script.
