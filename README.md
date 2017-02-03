@@ -3,4 +3,21 @@ Happy Birthday
 
 A terminal based Happy Birthday card
 
-See <a href="http://lifepluslinux.blogspot.in/2015/03/a-geek-way-to-wish-happy-birthday.html">this</a> for demo and details.
+# Installation
+###pip install
+``` pip3 install scipy ```
+
+###mplayer install
+####mac:
+``` brew install mplayer```
+####linux:
+``` sudo apt-get install mplayer smplayer ladspa-sdk libdvdcss2 mplayer-doc w32codecs regionset smplayer-themes ```
+
+# Run
+First, you should turn up the volume before run this script.
+
+Next, run this script.
+
+``` python3 happy.py```
+
+enjoy your happy birthday!
