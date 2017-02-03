@@ -14,13 +14,17 @@ brew install mplayer figlet
 ```
 
 ####linux:
-``` sudo apt-get install mplayer figlet```
+```
+sudo apt-get install mplayer figlet
+```
 
 # Run
 First, you should turn up the volume before run this script.
 
 Next, run this script.
 
-``` python3 happy.py```
+```
+python3 happy.py
+```
 
 enjoy your happy birthday!
