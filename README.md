@@ -11,7 +11,7 @@ A terminal based Happy Birthday card
 ####mac:
 ``` brew install mplayer```
 ####linux:
-``` sudo apt-get install mplayer smplayer ladspa-sdk libdvdcss2 mplayer-doc w32codecs regionset smplayer-themes ```
+``` sudo apt-get install mplayer```
 
 # Run
 First, you should turn up the volume before run this script.
