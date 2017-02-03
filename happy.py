@@ -1,5 +1,4 @@
 import scipy.io.wavfile as wavfile
-import numpy as np
 import time
 import os
 import sys
@@ -19,7 +18,7 @@ _min = min([abs(x) for x in data[:,0]]) #max amplitude in the wav
 _max = max([abs(x) for x in data[:,0]])	#min amplitude in the wav
 
 # IMPORTANT: correction factor. Change this value to match the song with equalizer
-correction = 0.645
+correction = 0.540
 
 # cake settings
 cols = int(subprocess.Popen("tput cols",shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE).stdout.readlines()[0]) #columns in terminal
@@ -27,7 +26,7 @@ display_char = "8"
 cake_size = 50
 
 # flame control
-flame_flutter_rate = 50 
+flame_flutter_rate = 50
 FLAMES = [ " . ", ".  ", "  ." ]
 current_flame = ""
 
@@ -37,18 +36,18 @@ if sys.platform is "darwin":
 	os.system("open "+FILE)
 else:
 	os.system("mplayer -msglevel all=-1 "+FILE+"&")
-
-for _f in range(data_length/display_rate):
+	# "mplayer -msglevel all=-1 karaoke&"
+for _f in range(int(data_length/display_rate)):
 
 	# fluttering effect to candle flames
 	if _f%flame_flutter_rate == 0:
-		current_flame = (" "*(cols/2 - cake_size/2))+((" "+FLAMES[randint(0,2)]+" ")*(cake_size/5))
-	print current_flame
-	
+		current_flame = str(" "*int(cols/2 - cake_size/2))+str((" "+FLAMES[randint(0,2)]+" ")*int(cake_size/5))
+	print(current_flame)
+
 	# candles
-	print (" "*(cols/2 - cake_size/2))+("  |  "*(cake_size/5))
+	print(str(" "*int(cols/2 - cake_size/2))+str("  |  "*int(cake_size/5)))
 	# cake top layer
-	print (" "*(cols/2 - cake_size/2))+("-"*cake_size)
+	print(str(" "*int(cols/2 - cake_size/2))+str("-"*cake_size))
 
 	bucket = []
 	mug = []
@@ -63,24 +62,19 @@ for _f in range(data_length/display_rate):
 
 	# print the equalizer from the bucket
 	for value in bucket:
-		print (" "*(cols/2 - cake_size/2))+"| "+("8"*(value%(cake_size-2)))+(" "*(cake_size-value-2))+"|"
+		print(str(" "*int(cols/2 - cake_size/2))+"| "+str("8"*int(value%(cake_size-2)))+str(" "*(cake_size-value-2))+"|")
 
 	# bottom crust of the cake
-	print (" "*(cols/2 - cake_size/2))+("-"*cake_size)
+	print(str(" "*int(cols/2 - cake_size/2))+str("-"*cake_size))
 
 	# print happy birthday message
-	os.system("figlet -c -f small Happy Birthday qwerty!")
+	os.system("figlet -c -f small Happy Birthday ishowta!")
 
 	# sleep to match with the audio
-	""" 
-		NOTE: correction has to be multiplied to sleep time
-		This is because of several factors like time taken to wake from sleep, type of terminal used..etc
-		CHANGE THE VALUE OF correction TO FIT YOUR NEED
-	"""
 	time.sleep(((float)(display_rate * t_total) / data_length)*correction)
 
 	# clear screen
 	if _f != data_length/display_rate-1:
 		os.system("clear")
 
-raw_input()
+input()
